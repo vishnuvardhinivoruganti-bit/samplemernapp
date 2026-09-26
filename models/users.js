@@ -6,4 +6,4 @@ let userSchema=new mongoose.Schema({
     role: { type: String, enum: ['employee', 'hr'] }
 })
 let users=mongoose.model("users",userSchema);
-module.exports=users;
+module.exports={users};
