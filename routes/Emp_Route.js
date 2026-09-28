@@ -45,6 +45,12 @@ route.get('/viewtask', (req, res) => {
 route.get('/profile', (req, res) => { // GET makes more sense
     res.send("profile route called");
 });
+route.get('/updateprofile/:id',async (req, res) => { 
+    let data=req.body;
+    let datapassword=await bcrypt.hash(data.password,10);
+    let result=await users.updateOne({_id:req.params.id},{$set:{name:data.name,email:data.email,password:datapassword}});
+    res.send(result);
+});
 route.get('/viewmap', (req, res) => {
     res.send("view map route called");
 });
