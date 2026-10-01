@@ -1,6 +1,17 @@
 let express = require('express');
 let hrRoute = express.Router();
 let { users } = require('../models/users');
+let { task } = require('../models/tasks');
+hrRoute.post('/assign-task', async (req, res) => {
+    try {
+        let data = req.body;
+        let newTask = new task(data);
+        let result = await newTask.save();
+        res.send(result);
+    } catch (err) {
+        res.status(500).send(err.message);
+    }
+});
 hrRoute.get('/viewmap', async (req, res) => {
     let result = await users.find({ role: 'employee' });
     res.send(result);
