@@ -30,7 +30,7 @@ route.post('/login', async (req, res) => {
         if (passcheck) {
             res.send("login successful");
         } else {
-            res.send("invalid password");
+            res.send("login failed");
         }
     } catch (err) {
         res.status(500).send(err.message);

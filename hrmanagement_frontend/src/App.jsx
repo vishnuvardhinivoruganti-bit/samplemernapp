@@ -1,22 +1,29 @@
-import Header from "./components/header"
-import Footer from "./components/footer"
-import Home from "./pages/home"
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+import Home from "./pages/Home"
 import About from "./pages/about"
 import Contact from "./pages/contact"
-import{Routes,Route} from 'react-router-dom'
+import Login from "./pages/login"
+import Register from "./pages/register"
+import AdminHome from "./pages/adminhome"
+import HrHome from "./pages/hrhome"
+import EmpHome from "./pages/emphome"
+
+import {Routes,Route} from 'react-router-dom'
 function App() {
   return (
     <div>
       <Header></Header>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+    <Routes>
+        <Route path="/" element={<Home></Home>}></Route>
+ <Route path="/register" element={<Register></Register>}></Route>
+        <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/about" element={<About></About>}></Route>
+        <Route path="/contact" element={<Contact></Contact>}></Route>
+    </Routes>
       <Footer></Footer>
     </div>
   )
 }
-
 
 export default App
